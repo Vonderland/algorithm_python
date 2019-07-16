@@ -15,3 +15,28 @@ class Solution:
             else:
                 i += 1
         return False
+
+    def duplicate_not_change(self, numbers, duplication):
+        start = 1
+        end = len(numbers) -1
+        while start <= end:
+            middle = start + (end - start) // 2
+            count = self.count_times(numbers, start, middle)
+            if start == end:
+                if count > 1:
+                    duplication[0] = start
+                    return True
+                else:
+                    break
+            if count > middle - start + 1:
+                end = middle
+            else:
+                start = middle + 1
+        return False
+
+    def count_times(self, numbers, start, end):
+        if len(numbers) > 0:
+            flag = [n >= start and n <= end for n in numbers]
+            return sum(flag)
+        else:
+            return 0
