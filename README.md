@@ -1,2 +1,2 @@
-# offer_code_python
-剑指offer，python实现
+# algorithm_python
+python算法练习
